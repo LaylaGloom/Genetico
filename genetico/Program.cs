@@ -35,7 +35,7 @@ namespace genetico
 
             accion.iniciar_poblacion(poblacion_i); //generar poblacion
 
-            accion.imprimir();
+            accion.imprimir(); //imprimir la tabla
 
             Console.ReadKey();
 
