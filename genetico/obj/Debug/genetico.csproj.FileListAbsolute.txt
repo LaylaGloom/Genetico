@@ -1,0 +1,6 @@
+D:\Usuarios\Documentos\Visual Studio 2017\Projects\genetico\genetico\bin\Debug\genetico.exe
+D:\Usuarios\Documentos\Visual Studio 2017\Projects\genetico\genetico\bin\Debug\genetico.pdb
+D:\Usuarios\Documentos\Visual Studio 2017\Projects\genetico\genetico\obj\Debug\genetico.csprojAssemblyReference.cache
+D:\Usuarios\Documentos\Visual Studio 2017\Projects\genetico\genetico\obj\Debug\genetico.csproj.CoreCompileInputs.cache
+D:\Usuarios\Documentos\Visual Studio 2017\Projects\genetico\genetico\obj\Debug\genetico.exe
+D:\Usuarios\Documentos\Visual Studio 2017\Projects\genetico\genetico\obj\Debug\genetico.pdb
