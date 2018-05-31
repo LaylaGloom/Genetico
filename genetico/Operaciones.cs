@@ -10,11 +10,13 @@ namespace genetico
     class Operaciones
     {
 
-        Individuo inicio; //variable que contendrá la lista
+        Individuo inicio; //variable que contendrá la lista de individuos
+        Padre padres; //variable que contendrá la lista de padres
 
         public Operaciones() //constructor para iniciar lista
         {
             inicio = null;
+            padres = null;
         }
 
         public void iniciar_poblacion(int t_poblacion) //realizar paso uno
@@ -147,6 +149,82 @@ namespace genetico
 
             return Math.Round(sum,2);
         }
+
+        #region Denise
+
+        private double[] generarNumerosAleatorios(int size)
+        {
+            double[] array = new double[size];
+            Random random = new Random();
+
+            for (int i = 0; i < array.Length; i++)
+                array[i] = Math.Round(random.NextDouble(), 2);
+
+            return array;
+        }
+
+        //public void generar_padres(int poblacion)
+        public void generarLosNuevosPadresDeLaPatria(int poblacion)
+        {
+
+            if (inicio == null)
+            {
+                Console.WriteLine("No hay nada");
+            }
+            else
+            {
+                double[] valores = generarNumerosAleatorios(poblacion);
+
+                Console.WriteLine("\n\n\t\t\t\t ---Padres ---\n");
+                Individuo aux = inicio;
+                Padre auxPadre, nuevo;
+
+                Console.Write("Los numeros aleatorios son: ");
+                for (int i = 0; i < valores.Length; i++)
+                    Console.Write(valores[i] + "   ,   ");
+                Console.Write("\n\n");
+
+                for (int i = 0; i < poblacion; i++)
+                {
+                    while (aux != null)
+                    {
+                        if (aux.acumulado > valores[i])
+                        {
+                            if (padres == null)
+                                padres = new Padre(aux.bites);
+                            else
+                            {
+                                nuevo = new Padre(aux.bites);
+                                auxPadre = padres;
+                                while (auxPadre.siguiente != null)
+                                    auxPadre = auxPadre.siguiente;
+                                auxPadre.siguiente = nuevo;
+                            }
+
+                            break;
+                        }
+                        aux = aux.siguiente;
+                    }
+                    aux = inicio;
+                }
+
+
+                auxPadre = padres;
+                int n = 1;
+                while(auxPadre != null)
+                {
+                    Console.WriteLine("Padre " + n +"   =   " + calcular_x(auxPadre.bite) + "   ---->   " + auxPadre.bite);
+
+                    n++;
+                    auxPadre = auxPadre.siguiente;
+                }
+
+            }
+
+
+        }
+
+        #endregion
 
     }
 }

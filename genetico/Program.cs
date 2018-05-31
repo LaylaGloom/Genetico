@@ -37,6 +37,8 @@ namespace genetico
 
             accion.imprimir(); //imprimir la tabla
 
+            accion.generarLosNuevosPadresDeLaPatria(poblacion_i);
+
             Console.ReadKey();
 
         }
