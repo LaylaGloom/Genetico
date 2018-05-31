@@ -163,14 +163,10 @@ namespace genetico
             return array;
         }
 
-        //public void generar_padres(int poblacion)
         public void generarLosNuevosPadresDeLaPatria(int poblacion)
         {
-
             if (inicio == null)
-            {
                 Console.WriteLine("No hay nada");
-            }
             else
             {
                 double[] valores = generarNumerosAleatorios(poblacion);
@@ -181,7 +177,7 @@ namespace genetico
 
                 Console.Write("Los numeros aleatorios son: ");
                 for (int i = 0; i < valores.Length; i++)
-                    Console.Write(valores[i] + "   ,   ");
+                    Console.Write(valores[i] + " ");
                 Console.Write("\n\n");
 
                 for (int i = 0; i < poblacion; i++)
@@ -208,7 +204,6 @@ namespace genetico
                     aux = inicio;
                 }
 
-
                 auxPadre = padres;
                 int n = 1;
                 while(auxPadre != null)
@@ -218,13 +213,12 @@ namespace genetico
                     n++;
                     auxPadre = auxPadre.siguiente;
                 }
-
             }
-
-
         }
 
         #endregion
+
+
 
     }
 }

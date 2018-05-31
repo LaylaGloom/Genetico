@@ -9,10 +9,13 @@ namespace genetico
     {
         static void Main(string[] args)
         {
-            String poblacion_s; //numero introducido por el usuario
+            String poblacion_s, //numero introducido por el usuario
+                   probabilidad_cruce; //numero introducido por el usuario
             bool digit; //variable para comprobar el numero introducido
-            int numero_entero = 0, //variable para ocupar 
+            int numero_entero = 0, //variable para compara con digito entero
                 poblacion_i; //numero de la poblacion en numero entero
+            double numero_decimal = 0.0, //variable para comparar con digito decimal
+                   probabilidad_c; //variable para almacenar la probabilidad de cruce
 
             Operaciones accion = new Operaciones();
 
@@ -32,6 +35,24 @@ namespace genetico
                 else
                     Console.WriteLine("El tamaño debe ser un numero entero\n");
             } while (true); //ciclo infinito
+
+            do
+            {
+                Console.WriteLine("Escriba la probabilidad de cruce [0.65 ~ 0.80]");
+                probabilidad_cruce = Console.ReadLine();
+                digit = Double.TryParse(probabilidad_cruce, out numero_decimal);
+                if (digit)
+                {
+                    probabilidad_c = Double.Parse(probabilidad_cruce);
+                    if (probabilidad_c <= 0.80 && probabilidad_c >= 0.65)
+                        break;
+                    else
+                        Console.WriteLine("Se debe introducir un numero entre esos rangos");
+                }
+                else
+                    Console.WriteLine("Se debe introducir un numero entre esos rangos");
+
+            } while (true);
 
             accion.iniciar_poblacion(poblacion_i); //generar poblacion
 
